@@ -16,6 +16,7 @@ pipeline {
       steps{
         script {
           dockerImage = docker.build imagename
+          docker stop $(docker ps -q --filter ancestor=amwell_test)
         }
       }
     }
