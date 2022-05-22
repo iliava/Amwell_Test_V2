@@ -19,7 +19,7 @@ pipeline {
            sh '''#!/bin/bash
 
                     docker ps
-                    docker stop $(docker ps -q --filter ancestor=nginx )
+                    docker stop $(docker ps -q --filter ancestor=amwell_test )
                 '''
         }
       }
