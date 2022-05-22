@@ -16,9 +16,11 @@ pipeline {
       steps{
         script {
           dockerImage = docker.build imagename
-          sh '''#!/bin/bash
-                 docker stop $(docker ps -q --filter ancestor=amwell_test)" 
-         '''
+           sh '''#!/bin/bash
+
+                    echo "Hello from bash"
+                    echo "Who I'm $SHELL"
+                '''
         }
       }
     }
