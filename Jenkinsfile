@@ -4,13 +4,6 @@ pipeline {
     dockerImage = ''
   }
   agent any
-  stages {
-    stage('Cloning Git') {
-      steps {
-        git([url: 'https://github.com/iliava/Amwell_Test_V2.git', branch: 'main'])
-
-      }
-    }
     stage('Building image') {
       steps{
         script {
