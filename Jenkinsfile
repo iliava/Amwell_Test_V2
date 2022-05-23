@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git([url: 'https://github.com/iliava/Amwell_Test_V2.git', branch: 'main', credentialsId: 'iliava'])
+        git([url: 'https://github.com/iliava/Amwell_Test_V2.git', branch: 'main'])
 
       }
     }
