@@ -3,6 +3,7 @@ pipeline {
     imagename = "amwell_test"
     registryCredential = 'IliaVa'
     dockerImage = ''
+    tag = BUILD_NUMBER
   }
   agent any
   stages {
@@ -15,7 +16,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build imagename:BUILD_NUMBER
+          dockerImage = docker.build imagename:tag
            sh '''#!/bin/bash
                     docker stop $(docker ps -q --filter ancestor=amwell_test )
                     docker run -d -p 5000:5000 amwell_test
