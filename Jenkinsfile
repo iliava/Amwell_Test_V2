@@ -20,7 +20,7 @@ pipeline {
 
                     docker ps
                     docker stop $(docker ps -q --filter ancestor=amwell_test )
-                    ls
+                    docker run -d -p 5000:5000 amwell_test
                 '''
         }
       }
