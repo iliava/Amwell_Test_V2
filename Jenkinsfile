@@ -16,7 +16,7 @@ pipeline {
       steps{
         script {
           dockerImage = docker.build imagename + ":$BUILD_NUMBER"
-
+           sh "ls"
            sh "docker run -d -p 5000:5000 $imagename:$BUILD_NUMBER"
         }
       }
