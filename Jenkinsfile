@@ -19,6 +19,7 @@ pipeline {
            sh '''#!/bin/bash
                     docker stop $(docker ps -q --filter ancestor=amwell_test )
                 '''
+          ls
         }
       }
     }
