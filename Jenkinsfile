@@ -1,7 +1,6 @@
 pipeline {
   environment {
     imagename = "amwell_test"
-    registryCredential = 'IliaVa'
     dockerImage = ''
   }
   agent any
