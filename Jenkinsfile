@@ -18,8 +18,8 @@ pipeline {
           dockerImage = docker.build imagename + ":$BUILD_NUMBER"
            sh '''#!/bin/bash
                     docker stop $(docker ps -q --filter ancestor=amwell_test )
+                    ls
                 '''
-          ls
         }
       }
     }
