@@ -16,10 +16,7 @@ pipeline {
       steps{
         script {
           dockerImage = docker.build imagename + ":$BUILD_NUMBER"
-           sh '''#!/bin/bash
-                    docker stop $(docker container ls -q --filter name=$imagename)
-                    ls
-                '''
+           sh "docker stop $(docker container ls -q --filter name=$imagename)"
            sh "docker run -d -p 5000:5000 $imagename:$BUILD_NUMBER"
         }
       }
