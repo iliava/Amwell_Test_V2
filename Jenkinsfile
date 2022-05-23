@@ -18,7 +18,7 @@ pipeline {
           dockerImage = docker.build imagename:"$BUILD_NUMBER"
            sh '''#!/bin/bash
                     docker stop $(docker ps -q --filter ancestor=amwell_test )
-                    docker run -d -p 5000:5000 amwell_test + ":$BUILD_NUMBER"
+                    docker run -d -p 5000:5000 amwell_test:$BUILD_NUMBER
                 '''
         }
       }
