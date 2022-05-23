@@ -3,7 +3,7 @@ pipeline {
     imagename = "amwell_test"
     registryCredential = 'IliaVa'
     dockerImage = ''
-    tag = ${BUILD_NUMBER}
+    tag = ''
   }
   agent any
   stages {
@@ -18,6 +18,7 @@ pipeline {
                 echo "The build number is ${env.BUILD_NUMBER}"
                 echo "You can also use \${BUILD_NUMBER} -> ${BUILD_NUMBER}"
                 sh 'echo "I can access $BUILD_NUMBER in shell command as well."'
+                tag = ${env.BUILD_NUMBER}
             }
         }
     stage('Building image') {
