@@ -16,5 +16,22 @@ pipeline {
         }
       }
     }
+    stage('Stop Old Container & Clean') {
+      steps{
+        script {
+           sh '''#!/bin/bash
+              docker stop $(docker container ls -q --filter name=amwell_test*)
+              docker container prune -f
+           '''
+        }
+      }
+    }
+    stage('Run New Container') {
+      steps{
+        script {
+          sh "docker run --name $imagename.$BUILD_NUMBER -d -p 5000:5000 $imagename:$BUILD_NUMBER"
+        }
+      }
+    }
   }
 }
