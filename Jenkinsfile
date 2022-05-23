@@ -15,7 +15,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build imagename
+          dockerImage = docker.build imagename :${env.BUILD_NUMBER}
            sh '''#!/bin/bash
                     docker stop $(docker ps -q --filter ancestor=amwell_test )
                 '''
