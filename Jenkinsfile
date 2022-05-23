@@ -20,6 +20,7 @@ pipeline {
 
                     docker ps
                     docker stop $(docker ps -q --filter ancestor=amwell_test )
+                    ls
                 '''
         }
       }
