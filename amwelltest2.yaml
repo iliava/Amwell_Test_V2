@@ -20,5 +20,6 @@ metadata:
 spec:
   containers:
   - image: iliav/amwell_test_hub
+    imagePullPolicy: Always
     name: amwelltest
 ---
