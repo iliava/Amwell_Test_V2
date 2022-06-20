@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: amwelltest
+spec:
+  selector:
+    name: amwelltest
+  type: NodePort
+  ports:
+  - name: foo # Actually, no port is needed.
+    port: 5000
+    targetPort: 5000
+---
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: amwelltest
+  labels:
+    app: amwelltest
+spec:
+  selector:
+    matchLabels:
+      app: amwelltest
+  template:
+    metadata:
+      labels:
+        app: amwelltest
+    spec:
+      containers:
+      - image: iliav/amwell_test_hub
+        imagePullPolicy: Always
+        name: amwelltest
+---
