@@ -14,9 +14,9 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: iliav/amwell_test_hub
+  name: amwelltest
   labels:
-    name: iliav/amwell_test_hub
+    name: amwelltest
 spec:
   containers:
   - image: iliav/amwell_test_hub
