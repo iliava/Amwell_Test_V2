@@ -4,20 +4,21 @@ metadata:
   name: amwelltest
 spec:
   selector:
-  name: amwelltest
-type: NodePort
-ports:
-- name: foo # Actually, no port is needed.
-  port: 5000
-  targetPort: 5000
+    name: amwelltest
+  type: NodePort
+  ports:
+  - name: foo # Actually, no port is needed.
+    port: 5000
+    targetPort: 5000
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: amwelltest
-labels:
-  name: amwelltest
+  name: iliav/amwell_test_hub
+  labels:
+    name: iliav/amwell_test_hub
 spec:
   containers:
-- image: iliav/amwell_test_hub
-  name: amwelltest
+  - image: iliav/amwell_test_hub
+    name: amwelltest
+---
