@@ -3,7 +3,9 @@ pipeline {
     imagename = "amwell_test"
     dockerImage = ''
   }
-  agent any
+  agent{
+      label 'linux'
+  }
   stages {
     stage('Building image') {
       steps{
