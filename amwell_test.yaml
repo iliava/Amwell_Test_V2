@@ -1,21 +1,23 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: iliav/amwell_test_hub
-  labels:
-    app: iliav/amwell_test_hub
+name: amwelltest
 spec:
-  selector:
-    matchLabels:
-      app: iliav/amwell_test_hub
-  template:
-    metadata:
-      labels:
-        app: iliav/amwell_test_hub
-    spec:
-      containers:
-      - image: iliav/amwell_test_hub
-        imagePullPolicy: Always
-        name: iliav/amwell_test_hub
-        ports:
-        - containerPort: 5000
+selector:
+name: amwelltest
+type: NodePort
+ports:
+- name: foo # Actually, no port is needed.
+port: 5000
+targetPort: 5000
+---
+apiVersion: v1
+kind: Pod
+metadata:
+name: amwelltest
+labels:
+name: amwelltest
+spec:
+containers:
+- image: iliav/amwell_test_hub
+name: amwelltest
