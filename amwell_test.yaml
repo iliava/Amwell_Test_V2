@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iliav/amwell_test_hub
+  labels:
+    app: iliav/amwell_test_hub
+spec:
+  selector:
+    matchLabels:
+      app: iliav/amwell_test_hub
+  template:
+    metadata:
+      labels:
+        app: iliav/amwell_test_hub
+    spec:
+      containers:
+      - image: iliav/amwell_test_hub
+        imagePullPolicy: Always
+        name: iliav/amwell_test_hub
+        ports:
+        - containerPort: 5000
